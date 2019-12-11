@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="uft-8" class="toolbar" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Open+Sans">
+  </head>
+  <body>
+    <div class="toolbar" role="banner">
+      <div class="spacer"></div>
+        <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
+         
+        </a>
+      </div>
+    <div class="content" role="main">
+
+    <h2>Login</h2>
+      <div class="form-group">
+          <label class="datos">Username</label>
+          <div class="input2">
+            <input type="text" [(ngModel)]="user"/>
+          </div>
+      </div>
+      <div class="form-group">
+          <label  class="datos">Password</label>
+          <div>
+            <input type="password" [(ngModel)]="password"/> 
+          </div>        
+      </div>
+      <div class="row">
+          <div class="col">
+              <button type="button" class="button" (click)="onLogin()">
+                  Login
+              </button>
+          </div>
+          <!--<div class="col">
+              <button type="button" id="popupabrir" class="button" (click)="openModal(template)">
+                  Crear usuario
+              </button>
+          </div>-->
+      </div>
+    </div>
+
+    <ng-template #template>
+      <div class="modal-header">
+          <div class="popup" id="popup">
+              <h3>Agregar nuevo usuario</h3>
+              <div class="contendor-inputs">
+                <input [(ngModel)]="newuser" type="text" placeholder="Usuario"/>
+                <input [(ngModel)]="newpassword" type="password" placeholder="Contraseña"/>
+                <input [(ngModel)]="confirmpassword" type="password" placeholder="Confirmar contraseña"/>
+              </div>  
+                <button id="aceptar" (click)="AceptNewUser()" class="btnform">
+                    Aceptar
+                </button>  
+                <button id="cancelar" (click)="cerrarmodal(modalRef)" class="btnform">
+                    Cancelar
+                </button>  
+            </div>
+      </div>
+    </ng-template>
+  </body>
+
+
+</html>

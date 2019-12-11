@@ -1,0 +1,105 @@
+<!doctype html>
+<html class="back">
+    <head>
+        <meta charset="uft-8" class="toolbar" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="grid-container">
+                <div class="col">
+                    <select id="filtrar" class="custom-select" [(ngModel)]="filtrar">
+                        <option value="carrera">Carrera</option>
+                        <option value="nombre">Nombre</option>
+                        <option value="edad">Edad</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <input type="text" placeholder="Filtrar" class="form-controlFiltrar" [(ngModel)]="filtrarinput">
+                </div>
+                <div class="col">
+                    <button id="buttonCancelar" (click)="Filtrar()" class="btnform">
+                            Filtrar
+                    </button> 
+                </div>
+                <div class="col">
+                    <button id="buttonsinfiltro" (click)="SinFiltrar()" class="btnform">
+                        Quitar filtro
+                    </button> 
+                </div>
+                <div class="col">
+                    <button id="cerrarsesion" (click)="cerrarsesion()" class="btnform">
+                            Cerrar sesión
+                    </button>
+                </div>
+            </div>   
+            <br>       
+            <div class="row">
+                <div class="col-md-12 mt-4">
+                    <ul class="list-group">
+                        <li
+                        *ngFor="let alumno of alumnos" 
+                        class="list-group-item list-group-item-action" (click)="openEdit(alumno)"
+                        [class.active]="alumno == selectedAlumno">
+                        <b>Nombre:</b> {{ alumno.nombre}} 
+                        <b>Apellidos:</b> {{alumno.apellidos}}
+                        <b>Carrera:</b> {{alumno.carrera}} 
+                        <b>Edad:</b> {{alumno.edad}}
+                        </li>        
+                    </ul >
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <div class="card-title">
+                            Insertar un nuevo alumno
+                            </div>
+                            <div class="form-group">
+                                <input type="text" [(ngModel)]="nombre" placeholder="Nombre" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" [(ngModel)]="apellidos" placeholder="Apellidos" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" [(ngModel)]="edad" placeholder="Edad" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <!--<input type="text" [(ngModel)]="sexo" placeholder="Sexo" class="form-control">-->
+                                <select id="sexo" class="custom-select d-block w-100" [(ngModel)]="sexo">
+                                    <option [ngValue]="undefined" hidden>Sexo</option>
+                                    <option value="1">Femenino</option>
+                                    <option value="2">Masculino</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" [(ngModel)]="direccion" placeholder="Dirección" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <select id="carrera" class="custom-select d-block w-100" [(ngModel)]="carrera">
+                                    <option [ngValue]="undefined" hidden>Carrera</option>
+                                    <option value="1">Desarrollo de software</option>
+                                    <option value="2">Biomédica</option>
+                                    <option value="3">Mecatronica</option>
+                                    <option value="4">Agroindustrial</option>
+                                    <option value="5">Energía</option>
+                                    <option value="6">Ambiental</option>
+                                    <option value="7">Petrolera</option>
+                                    <option value="8">Tecnologías de Manufactura</option>
+                                </select>
+                            </div>      
+                            <button (click)="AddAlumno()" class="btnform">
+                                Registrar
+                            </button> 
+                            <button id="buttonModificar" (click)="UpdateAlumno()" class="btnform">
+                                    Modificar
+                            </button> 
+                            <button id="buttonEliminar"(click)="Delete()" class="btnform">
+                                    Eliminar
+                            </button>  
+                            <button id="buttonCancelar" (click)="Cancelar()" class="btnform">
+                                    Cancelar
+                            </button>                      
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>    
+</html>
